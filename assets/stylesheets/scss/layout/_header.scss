@@ -1,1 +1,26 @@
-h1 { color: $primary; }
+header {
+  .navbar {
+    &__container {
+      background-color: $bg-color3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+
+      // &--left {
+      //   margin-right: auto;
+      // }
+
+      &--center {
+        font-size: 3rem;
+      }
+
+      &--right {
+        a {
+          padding: 0 1rem;
+        }
+
+      }
+    }
+  }
+}
