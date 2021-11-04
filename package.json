@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "<!-- MovieRama -->",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "compile:sass": "sass assets/stylesheets/scss/main.scss assets/stylesheets/css/style.css -w"
   },
