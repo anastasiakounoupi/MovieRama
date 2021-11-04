@@ -1,6 +1,10 @@
 @import "abstracts/variables";
+@import "abstracts/animation";
 
 @import "base/base";
 @import "base/typography";
+
+@import "components/movielist";
+@import "components/movie";
 
 @import "layout/header";
