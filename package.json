@@ -1,0 +1,22 @@
+{
+  "name": "movierama",
+  "version": "1.0.0",
+  "description": "<!-- MovieRama -->",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass assets/stylesheets/scss/main.scss assets/stylesheets/css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anastasiakounoupi/MovieRama.git"
+  },
+  "author": "Anastasia Kounoupi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anastasiakounoupi/MovieRama/issues"
+  },
+  "homepage": "https://github.com/anastasiakounoupi/MovieRama#readme",
+  "dependencies": {
+    "sass": "^1.43.4"
+  }
+}
