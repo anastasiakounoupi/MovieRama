@@ -1,7 +1,5 @@
-import { FetchMovies } from "./fetchMovies.js";
-
-const inTheatersList = new FetchMovies('movie/now_playing')
-// const movieList = new FetchMovies('genre/movie/list')
+// import { FetchMovies } from "./fetchMovies.js";
+import { getMovies } from "./inTheaters.js";
 
 const scrollTopBtn = document.querySelector('.button--scroll-top');
 
@@ -11,3 +9,5 @@ scrollTopBtn.addEventListener('click', () => {
     behavior: 'smooth'
   });
 })
+
+getMovies()
