@@ -70,8 +70,6 @@ a {
 }
 
 .movielist {
-  margin: 100px auto;
-  width: 80vw;
   display: flex;
   flex-wrap: wrap;
 }
@@ -137,6 +135,21 @@ a {
   width: 25rem;
 }
 
+.button--now-playing {
+  border: none;
+  background-color: #bb86fc;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem 4rem;
+  letter-spacing: 0.1rem;
+  transition: all 0.4s ease;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.button--now-playing:hover {
+  background-color: #9f54fb;
+}
+
 header .navbar__container {
   background-color: #2c2c2c;
   display: flex;
@@ -149,6 +162,14 @@ header .navbar__container--center {
 }
 header .navbar__container--right a {
   padding: 0 1rem;
+}
+
+.main__container {
+  margin: 100px auto;
+  width: 80vw;
+}
+.main__container-actions {
+  padding-bottom: 5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
