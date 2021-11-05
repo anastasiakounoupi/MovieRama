@@ -1,0 +1,18 @@
+.button {
+  &--now-playing {
+    border: none;
+    background-color: $primary;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem 4rem;
+    letter-spacing: .1rem;
+    transition: all .4s ease;
+    border-radius: .3rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+  }
+}
+
