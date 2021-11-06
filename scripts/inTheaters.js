@@ -1,7 +1,24 @@
-const key = '?api_key=bc50218d91157b1ba4f142ef7baaa6a0';
-const baseUrl = 'https://api.themoviedb.org/3/';
-const apiUrl = `${baseUrl}movie/now_playing${key}`;
+export const key = '?api_key=bc50218d91157b1ba4f142ef7baaa6a0';
+export const baseUrl = 'https://api.themoviedb.org/3/';
 const genreUrl = `${baseUrl}genre/movie/list${key}`;
+let intersectionCounter = 0;
+const options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: .5
+};
+
+export const theaterObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      intersectionCounter++
+      const apiUrl = `${baseUrl}movie/now_playing${key}&page=${intersectionCounter}`;
+
+      getMovies(apiUrl)
+    }
+
+  });
+}, options);
 
 const getGenres = async () => {
   const response = await fetch(genreUrl)
@@ -11,16 +28,22 @@ const getGenres = async () => {
 
 const genreList = await getGenres()
 
-export const getMovies = async () => {
-  const response = await fetch(apiUrl)
-  const movies = await response.json()
-  showMovies(movies.results)
+export const getMovies = async (apiUrl) => {
+  try {
+    const response = await fetch(apiUrl)
+    const movies = await response.json()
+    showMovies(movies.results)
+  } catch (err) {
+    throw new Error ('Something went wrong')
+  }
 }
 
 const showMovies = (data) => {
   const movieList = document.querySelector('.movielist')
   const imageUrl = 'https://image.tmdb.org/t/p/w500'
-  movieList.innerHTML = '';
+  // const button = createElement('button')
+  // button.classList.add(component)
+  // movieList.appendChild(button)
 
   data.forEach(movie => {
     const { title, poster_path, release_date, vote_average, overview, genre_ids } = movie;
