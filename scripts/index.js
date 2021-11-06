@@ -2,8 +2,7 @@ import { getMovies, key, baseUrl } from './fetchMovies.js';
 import { debounce } from './debounce.js'
 import { scrollTop } from './scrollTop.js'
 
-const observeInTheaters = document.querySelector('footer')
-const observeSearch = document.querySelector('.button--observe-search')
+const footer = document.querySelector('footer')
 const input = document.querySelector('input');
 const inTheatersButton = document.querySelector('.button--inTheaters')
 let query = ''
@@ -31,7 +30,7 @@ export const theaterObserver = new IntersectionObserver((entries) => {
   });
 }, options);
 
-theaterObserver.observe(observeInTheaters);
+theaterObserver.observe(footer);
 
 const searchObserver = new IntersectionObserver((entries) => {
 
@@ -50,16 +49,15 @@ const onInput = (event) => {
   if (event.target.value === '') {
     intersectionCounter = 0;
     document.querySelector('.movielist').innerHTML = ''
-    searchObserver.unobserve(observeSearch)
+    searchObserver.unobserve(footer)
     return
   } else {
     query = event.target.value
     intersectionCounter = 0;
-    observeSearch.classList.remove('visually-hidden')
-    theaterObserver.unobserve(observeInTheaters)
+    theaterObserver.unobserve(footer)
     document.querySelector('.movielist').innerHTML = ''
-  
-    searchObserver.observe(observeSearch);
+
+    searchObserver.observe(footer);
   }
 }
 
@@ -67,9 +65,8 @@ input.addEventListener('input', debounce(onInput, 500) )
 
 inTheatersButton.addEventListener('click', () => {
   document.querySelector('.movielist').innerHTML = ''
-  observeSearch.classList.add('visually-hidden')
   input.value = ''
   intersectionCounter = 0;
-  theaterObserver.observe(observeInTheaters);
-  searchObserver.unobserve(observeSearch);
+  theaterObserver.observe(footer);
+  searchObserver.unobserve(footer);
 })
