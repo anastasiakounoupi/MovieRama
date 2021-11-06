@@ -14,9 +14,9 @@ const getGenres = async () => {
 
 const genreList = await getGenres()
 
-export const getMovies = async (apiUrl) => {
+export const getMovies = async (url) => {
   try {
-    const response = await fetch(apiUrl)
+    const response = await fetch(url)
     const movies = await response.json()
     showMovies(movies.results)
   } catch (err) {
