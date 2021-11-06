@@ -60,6 +60,12 @@ i.fas, i.far {
   color: #bb86fc;
 }
 
+a {
+  color: #bb86fc;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -69,12 +75,6 @@ i.fas, i.far {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-a {
-  color: #bb86fc;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .movielist {
