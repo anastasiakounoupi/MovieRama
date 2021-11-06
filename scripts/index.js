@@ -1,5 +1,4 @@
-// import { FetchMovies } from "./fetchMovies.js";
-import { getMovies } from "./inTheaters.js";
+import { getMovies, theaterObserver, key, baseUrl } from "./inTheaters.js";
 
 const scrollTopBtn = document.querySelector('.button--scroll-top');
 
@@ -10,4 +9,19 @@ scrollTopBtn.addEventListener('click', () => {
   });
 })
 
-getMovies()
+const loadBtn = document.getElementById('load')
+
+theaterObserver.observe(loadBtn);
+
+const input = document.querySelector('input');
+
+input.addEventListener('input', (event) => {
+  theaterObserver.unobserve(loadBtn)
+  document.querySelector('.movielist').innerHTML = ''
+}, {once: true})
+
+input.addEventListener('input', (event) => {
+  document.querySelector('.movielist').innerHTML = ''
+  const searchUrl = `${baseUrl}search/movie/${key}&query=${event.target.value}`;
+  getMovies(searchUrl)
+})
