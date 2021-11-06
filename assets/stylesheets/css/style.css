@@ -143,7 +143,7 @@ a {
   width: 25rem;
 }
 
-.button--now-playing {
+.button--inTheaters {
   position: relative;
   border: none;
   background-color: #bb86fc;
@@ -155,16 +155,16 @@ a {
   border-radius: 0.3rem;
   cursor: pointer;
 }
-.button--now-playing:hover {
+.button--inTheaters:hover {
   background-color: #9f54fb;
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(36, 36, 36, 0.2);
 }
-.button--now-playing:hover::after {
+.button--inTheaters:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
-.button--now-playing::after {
+.button--inTheaters::after {
   content: "";
   background-color: #bb86fc;
   display: inline-block;
