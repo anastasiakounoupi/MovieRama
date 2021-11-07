@@ -4,9 +4,8 @@ const popup = document.querySelector('.popup')
 const popupContent = document.querySelector('.popup__content')
 const popupVideoContent = document.querySelector('.popup__content-video')
 const popupReviewContent = document.querySelector('.popup__content-reviews')
-const popupSimilarContent = document.querySelector('.popup__content-reviews')
+const popupSimilarContent = document.querySelector('.popup__content-similar')
 const imageUrl = 'https://image.tmdb.org/t/p/w500'
-
 
 export const showMovieDetails = async () => {
   const url = window.location.href
@@ -33,7 +32,7 @@ export const showMoviePopup = (data) => {
   const video = data[1].results[0]?.key
   if(video) {
     popupVideoContent.innerHTML = `
-    <iframe width="700" height="350" controls=0
+    <iframe width="700" height="350" controls=0 frameBorder=0
       src="https://www.youtube.com/embed/${video}">
     </iframe>
   `;
@@ -41,32 +40,38 @@ export const showMoviePopup = (data) => {
   
   const reviews = data[2].results.slice(0, 2)
   if(reviews.length) {
-    reviews.forEach(review => {
+    const container =document.createElement('div')
+    container.classList.add('popup__content-reviews-container')
+
+    popupReviewContent.innerHTML = '<h1 class="title-primary">REVIEWS</h1>'
+    reviews.map(review => {
       const { author, content } = review 
-      popupReviewContent.innerHTML += `
-        <h3>
-          ${author}
-        </h3>
-        <p>
-          ${content}
-        </p>
+      container.innerHTML += `
+        <div class="popup__content-reviews-item">
+          <h3>${author}</h3>
+          <p>${content}</p>
+        </div>
       `
     })
+    popupReviewContent.appendChild(container)
   }
   
   const similarMovies = data[3].results.slice(0,4)
   if(similarMovies.length) {
-    similarMovies.forEach(movie => {
+    const container =document.createElement('div')
+    container.classList.add('popup__content-similar-container')
+
+    popupSimilarContent.innerHTML = '<h1 class="title-primary">SIMILAR MOVIES</h1>'
+    similarMovies.map(movie => {
       const { title, poster_path } = movie
-      popupSimilarContent.innerHTML += `
-      <div class="popup__content-similar-row">
-        <img src="${imageUrl}${poster_path}" alt="${title}" width="50" class="movie__image">
-        <p>
-          ${title}
-        </p>
-      </div>
+      container.innerHTML += `
+        <div class="popup__content-similar-item">
+          <img src="${imageUrl}${poster_path}" alt="${title}" width="100" class="movie__image">
+          <p>${title}</p>
+        </div>
       `
     })
+    popupSimilarContent.appendChild(container)
   }
   
   popup.style.visibility = 'visible'
@@ -84,5 +89,6 @@ export const showMoviePopup = (data) => {
     popupVideoContent.innerHTML = ''
     popupReviewContent.innerHTML = ''
     popupSimilarContent.innerHTML = ''
+    window.location.href = '#'
   })
 }

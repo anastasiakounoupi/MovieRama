@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   background-color: rgba($bg-color2, .8);
-  z-index: 9999;
+  z-index: 2;
   opacity: 0;
   visibility: hidden;
   transition: all .3s;
@@ -20,8 +20,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: $white-text;
+    width: 70rem;
+    background-color: $bg-color1;
+    color: $white-text;
     box-shadow: 0 2rem 4rem rgba($bg-color2, .2);
     border-radius: .3rem;
     display: flex;
@@ -30,6 +31,43 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(.25);
     transition: all .4s;
+
+    &-bottom {
+      padding: 2rem;
+    }
+
+    &-reviews {
+      &-container {
+        max-height: 20rem;
+        overflow-y: scroll;
+        padding: 2rem;
+
+        &::-webkit-scrollbar { display: none; }
+      }
+
+      &-item { padding: 1rem; }
+    }
+
+    &-similar {
+      &-container {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      
+      padding-top: 3rem;
+
+      &-item {
+        width: 10rem;
+        overflow: hidden;
+        font-size: 1.6rem;
+
+        img {
+          transition: all .4s ease;
+
+          &:hover { transform: scale(1.1); } 
+        }
+      }
+    }
   }
 
   &__close {

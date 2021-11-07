@@ -17,3 +17,9 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+.title-primary {
+  background: -webkit-linear-gradient(45deg, $primary, $bg-color4);
+  -webkit-background-clip: text;
+  color: transparent;
+}
