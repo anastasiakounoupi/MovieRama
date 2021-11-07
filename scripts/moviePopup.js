@@ -1,4 +1,5 @@
 import { key, baseUrl } from './fetchMovies.js'
+import { similarMoviesSlider } from './sliders.js'
 
 const popup = document.querySelector('.popup')
 const popupContent = document.querySelector('.popup__content')
@@ -32,7 +33,7 @@ export const showMoviePopup = (data) => {
   const video = data[1].results[0]?.key
   if(video) {
     popupVideoContent.innerHTML = `
-    <iframe width="700" height="350" controls=0 frameBorder=0
+    <iframe width="700" height="300" controls=0 frameBorder=0
       src="https://www.youtube.com/embed/${video}">
     </iframe>
   `;
@@ -56,16 +57,16 @@ export const showMoviePopup = (data) => {
     popupReviewContent.appendChild(container)
   }
   
-  const similarMovies = data[3].results.slice(0,4)
+  const similarMovies = data[3].results
   if(similarMovies.length) {
     const container =document.createElement('div')
-    container.classList.add('popup__content-similar-container')
+    container.classList.add('popup__content-similar-container', 'swiper-wrapper')
 
     popupSimilarContent.innerHTML = '<h1 class="title-primary">SIMILAR MOVIES</h1>'
     similarMovies.map(movie => {
       const { title, poster_path } = movie
       container.innerHTML += `
-        <div class="popup__content-similar-item">
+        <div class="popup__content-similar-item swiper-slide">
           <img src="${imageUrl}${poster_path}" alt="${title}" width="100" class="movie__image">
           <p>${title}</p>
         </div>
@@ -80,7 +81,9 @@ export const showMoviePopup = (data) => {
   popupContent.style.opacity = '1'
   popupContent.style.transform = 'translate(-50%, -50%) scale(1)'
 
-  popupContent.addEventListener('click', () => {
+  similarMoviesSlider()
+
+  document.body.addEventListener('click', () => {
     popupContent.style.transform = 'translate(-50%, -50%) scale(.25)'
     popup.style.visibility = 'hidden'
     popup.style.opacity = '0'

@@ -17,6 +17,7 @@
   }
 
   &__content {
+    max-height: 100vh;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -32,34 +33,37 @@
     transform: translate(-50%, -50%) scale(.25);
     transition: all .4s;
 
-    &-bottom {
-      padding: 2rem;
-    }
+    &-bottom { padding: 1rem 2rem; }
 
     &-reviews {
       &-container {
-        max-height: 20rem;
+        max-height: 13rem;
         overflow-y: scroll;
-        padding: 2rem;
+        padding: 1rem 2rem;
+        font-size: 1.3rem;
 
-        &::-webkit-scrollbar { display: none; }
+        &::-webkit-scrollbar { width: .5rem; }
+      
+        &::-webkit-scrollbar-track {
+          background: $bg-color2;
+          border-radius: 3px;
+        }
+        
+        &::-webkit-scrollbar-thumb { background: $primary; }
       }
 
       &-item { padding: 1rem; }
     }
 
     &-similar {
-      &-container {
-        display: flex;
-        justify-content: space-evenly;
-      }
-      
-      padding-top: 3rem;
+      padding-top: 1.5rem;
 
+      &-container { display: flex; }
+      
       &-item {
-        width: 10rem;
+        width: 25%;
         overflow: hidden;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
 
         img {
           transition: all .4s ease;
@@ -67,25 +71,6 @@
           &:hover { transform: scale(1.1); } 
         }
       }
-    }
-  }
-
-  &__close {
-    &:link,
-    &:visited {
-      color: $bg-color4;
-      position: absolute;
-      top: 2.5rem;
-      right: 2.5rem;
-      font-size: 3rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: all .2s;
-      line-height: 1;
-    }
-
-    &:hover {
-      color: $primary;
     }
   }
 }
