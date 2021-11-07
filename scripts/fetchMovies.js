@@ -51,9 +51,9 @@ const showMovies = (data) => {
       <div class="movie__side movie__side--back">
         <div class="movie__details">
           <div class="movie__details--info">
-            <p class="movie__details--release">${release_date}</p>
+            <p class="movie__details--release">Year ${release_date.split('-')[0]}</p>
+            <p class="movie__details--vote">Average vote ${vote_average}</p>
             <p class="movie__details--genre">${genres.join(', ')}</p>
-            <p class="movie__details--vote">${vote_average}</p>
           </div>
           <p class="movie__details--desc">${overview}</p>
         </div>
