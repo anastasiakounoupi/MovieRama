@@ -1,55 +1,61 @@
-.form__group {
-  position: relative;
-  padding: 15px 0 0;
-  margin-top: 10px;
-  width: 50%;
-}
-
-.form__field {
-  font-family: inherit;
-  width: 100%;
-  border: 0;
-  border-bottom: 2px solid gray;
-  outline: 0;
-  font-size: 1.3rem;
-  color: $white-text;
-  padding: 7px 0;
-  background: transparent;
-  transition: border-color 0.2s;
-
-  &::placeholder {
-    color: transparent;
+.form {
+  &__group {
+    position: relative;
+    padding: 1.5rem 0 0;
+    margin-top: 1rem;
+    width: 50%;
   }
 
-  &:placeholder-shown ~ .form__label {
-    font-size: 1.3rem;
-    cursor: text;
-    top: 20px;
+  &__field {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid $white-text;
+    outline: 0;
+    font-size: 2rem;
+    color: $white-text;
+    padding: .7rem 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {color: transparent; }
+
+    &:placeholder-shown ~ .form__label {
+      font-size: 2rem;
+      cursor: text;
+      top: 2rem;
+    }
+
+    &:focus {
+      padding-bottom: .6rem;  
+      font-weight: 700;
+      border-width: .3rem;
+      border-image: linear-gradient(to right, $primary,$bg-color2);
+      border-image-slice: 1;
+
+      ~ .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1.3rem;
+        color: $primary;
+        font-weight:700;  
+      }
+    }
   }
-}
 
-.form__label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 1rem;
-  color: gray;
-}
-
-.form__field:focus {
-  ~ .form__label {
+  &__label {
     position: absolute;
     top: 0;
     display: block;
     transition: 0.2s;
-    font-size: 1rem;
-    color: $primary;
-    font-weight:700;    
+    color: $white-text;
   }
-  padding-bottom: 6px;  
-  font-weight: 700;
-  border-width: 3px;
-  border-image: linear-gradient(to right, $primary,$bg-color2);
-  border-image-slice: 1;
+}
+
+
+
+.form__field:focus {
+ 
+  
 }

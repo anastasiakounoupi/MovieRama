@@ -195,20 +195,18 @@ a {
 
 .form__group {
   position: relative;
-  padding: 15px 0 0;
-  margin-top: 10px;
+  padding: 1.5rem 0 0;
+  margin-top: 1rem;
   width: 50%;
 }
-
 .form__field {
-  font-family: inherit;
   width: 100%;
   border: 0;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid #f7f7f7;
   outline: 0;
-  font-size: 1.3rem;
+  font-size: 2rem;
   color: #f7f7f7;
-  padding: 7px 0;
+  padding: 0.7rem 0;
   background: transparent;
   transition: border-color 0.2s;
 }
@@ -216,24 +214,14 @@ a {
   color: transparent;
 }
 .form__field:placeholder-shown ~ .form__label {
-  font-size: 1.3rem;
+  font-size: 2rem;
   cursor: text;
-  top: 20px;
+  top: 2rem;
 }
-
-.form__label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 1rem;
-  color: gray;
-}
-
 .form__field:focus {
-  padding-bottom: 6px;
+  padding-bottom: 0.6rem;
   font-weight: 700;
-  border-width: 3px;
+  border-width: 0.3rem;
   border-image: linear-gradient(to right, #bb86fc, #242424);
   border-image-slice: 1;
 }
@@ -242,9 +230,16 @@ a {
   top: 0;
   display: block;
   transition: 0.2s;
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #bb86fc;
   font-weight: 700;
+}
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  color: #f7f7f7;
 }
 
 header .navbar__container {
@@ -267,6 +262,8 @@ header .navbar__container--right a {
 }
 .main__container-actions {
   padding-bottom: 5rem;
+  display: flex;
+  justify-content: space-around;
 }
 
 /*# sourceMappingURL=style.css.map */
