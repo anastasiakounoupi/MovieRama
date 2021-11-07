@@ -1,3 +1,6 @@
+import { showMovieDetails } from "./moviePopup.js";
+import { debounce } from "./debounce.js";
+
 export const key = '?api_key=bc50218d91157b1ba4f142ef7baaa6a0';
 export const baseUrl = 'https://api.themoviedb.org/3/';
 const genreUrl = `${baseUrl}genre/movie/list${key}`;
@@ -7,8 +10,8 @@ const getGenres = async () => {
     const response = await fetch(genreUrl)
     const { genres } = await response.json()
     return genres;
-  } catch {
-    throw new Error ('Something went wrong')
+  } catch (err) {
+    throw new Error(err)
   }
 }
 
@@ -20,7 +23,7 @@ export const getMovies = async (url) => {
     const movies = await response.json()
     showMovies(movies.results)
   } catch (err) {
-    throw new Error ('Something went wrong')
+    throw new Error(err)
   }
 }
 
@@ -29,7 +32,7 @@ const showMovies = (data) => {
   const imageUrl = 'https://image.tmdb.org/t/p/w500'
 
   data.forEach(movie => {
-    const { title, poster_path, release_date, vote_average, overview, genre_ids } = movie;
+    const { id, title, poster_path, release_date, vote_average, overview, genre_ids } = movie;
     let genres = [];
 
     genreList.forEach(genre => {
@@ -38,7 +41,9 @@ const showMovies = (data) => {
 
     const movieEl = document.createElement('article');
     movieEl.classList.add('movie');
+    movieEl.addEventListener('click', debounce(showMovieDetails, 500))
     movieEl.innerHTML = `
+      <a href="#movie-popup=${id}">
       <div class="movie__side movie__side--front">
         <img src="${imageUrl}${poster_path}" alt="${title}" width="250" class="movie__image">
         <h3 class="movie__details--title">${title}</h3>
@@ -53,6 +58,7 @@ const showMovies = (data) => {
           <p class="movie__details--desc">${overview}</p>
         </div>
       </div>
+      </a>
     `;
 
     movieList.appendChild(movieEl)

@@ -1,10 +1,13 @@
 import { getMovies, key, baseUrl } from './fetchMovies.js';
 import { debounce } from './debounce.js'
 import { scrollTop } from './scrollTop.js'
+// import { showMoviePopup } from './moviePopup.js';
 
 const footer = document.querySelector('footer')
 const input = document.querySelector('input');
 const inTheatersButton = document.querySelector('.button--inTheaters')
+// const movies = document.querySelectorAll('.movie')
+// console.log(movies)
 let query = ''
 
 scrollTop()
@@ -70,3 +73,7 @@ inTheatersButton.addEventListener('click', () => {
   theaterObserver.observe(footer);
   searchObserver.unobserve(footer);
 })
+
+// movies.forEach(movie => {
+//   movie.addEventListener('click', showMoviePopup)
+// })

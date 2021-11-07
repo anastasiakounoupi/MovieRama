@@ -77,6 +77,12 @@ a {
   border: 0;
 }
 
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.25);
+}
+
 .movielist {
   display: flex;
   flex-wrap: wrap;
@@ -240,6 +246,55 @@ a {
   display: block;
   transition: 0.2s;
   color: #f7f7f7;
+}
+
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(36, 36, 36, 0.8);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+@supports (-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem)) {
+  .popup {
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
+    background-color: rgba(36, 36, 36, 0.3);
+  }
+}
+.popup__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f7f7f7;
+  box-shadow: 0 2rem 4rem rgba(36, 36, 36, 0.2);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.25);
+  transition: all 0.4s;
+}
+.popup__close:link, .popup__close:visited {
+  color: #333333;
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  font-size: 3rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+  line-height: 1;
+}
+.popup__close:hover {
+  color: #bb86fc;
 }
 
 header .navbar__container {
