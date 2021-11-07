@@ -4,7 +4,7 @@
   position: relative;
   height: 47rem;
   color: $white-text;
-  font-size: $default-font;
+  font-size: 1.5rem;
   width: 25rem;
   margin: 1rem;
   box-shadow: 0 1.5rem 4rem rgba($bg-color4, .45);
@@ -25,9 +25,8 @@
       transform: rotateY(180deg);
       background-color: $primary;
       overflow-y: scroll;
-      &::-webkit-scrollbar {
-        display: none;
-      }
+     
+      @include scrollbar;
     }
   }
 
@@ -49,14 +48,16 @@
     }
 
     &--info {
-      display: flex;
-      justify-content: space-evenly;
+      color: $white-text2;
+      width: 70%;
+      margin: 0 auto;
     }
 
     &--desc {
-      color: $white-text2;
+      color: $white-text;
+      text-align: left;
       padding: 1rem 1rem 3rem;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       width: 25rem;
     }
   }

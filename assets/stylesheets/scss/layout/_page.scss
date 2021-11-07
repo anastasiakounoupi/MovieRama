@@ -1,12 +1,10 @@
 .main {
   &__container {
-    margin: 100px auto;
+    margin: 10rem auto;
     width: 80vw;
 
     &-actions {
       padding-bottom: 5rem;
-      display: flex;
-      justify-content: space-around;
     }
   }
 }
