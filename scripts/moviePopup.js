@@ -67,7 +67,7 @@ export const showMoviePopup = (data) => {
       const { title, poster_path } = movie
       container.innerHTML += `
         <div class="popup__content-similar-item swiper-slide">
-          <img src="${imageUrl}${poster_path}" alt="${title}" width="100" class="movie__image">
+          <img src="${imageUrl}${poster_path}" alt="${title}" loading="lazy" width="100" class="movie__image">
           <p>${title}</p>
         </div>
       `
@@ -92,6 +92,5 @@ export const showMoviePopup = (data) => {
     popupVideoContent.innerHTML = ''
     popupReviewContent.innerHTML = ''
     popupSimilarContent.innerHTML = ''
-    window.location.href = '#'
   })
 }

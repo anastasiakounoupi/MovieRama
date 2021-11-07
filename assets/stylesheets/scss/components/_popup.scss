@@ -1,5 +1,5 @@
 .popup {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
@@ -18,7 +18,7 @@
 
   &__content {
     max-height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     width: 70rem;

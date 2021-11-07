@@ -45,7 +45,7 @@ const showMovies = (data) => {
     movieEl.innerHTML = `
       <a href="#movie-popup=${id}">
       <div class="movie__side movie__side--front">
-        <img src="${imageUrl}${poster_path}" alt="${title}" width="250" class="movie__image">
+        <img src="${imageUrl}${poster_path}" alt="${title}" loading="lazy" width="250" class="movie__image">
         <h3 class="movie__details--title">${title}</h3>
       </div>
       <div class="movie__side movie__side--back">
