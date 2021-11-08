@@ -28,7 +28,7 @@
     }
   }
 
-  &:hover &__side--front { transform: rotateY(-180deg); }
+  &:hover &__side--front { transform: rotateY(-180deg) scale(1.1); }
 
   &:hover &__side--back { transform: rotateY(0); }
 
