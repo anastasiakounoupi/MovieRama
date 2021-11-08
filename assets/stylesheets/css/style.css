@@ -148,18 +148,8 @@ a {
 }
 .movie__side--back {
   transform: rotateY(180deg);
-  background-color: #bb86fc;
-  overflow-y: scroll;
-}
-.movie__side--back::-webkit-scrollbar {
-  width: 0.5rem;
-}
-.movie__side--back::-webkit-scrollbar-track {
-  background: #242424;
-  border-radius: 3px;
-}
-.movie__side--back::-webkit-scrollbar-thumb {
-  background: #bb86fc;
+  background: linear-gradient(to right bottom, #242424, #9f54fb);
+  color: #ffffffb3;
 }
 .movie:hover .movie__side--front {
   transform: rotateY(-180deg);
@@ -183,14 +173,26 @@ a {
 .movie__details--info {
   color: #ffffffb3;
   width: 70%;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 .movie__details--desc {
-  color: #f7f7f7;
   text-align: left;
-  padding: 1rem 1rem 3rem;
+  padding: 1rem 1.5rem 3rem;
+  margin-top: 4rem;
   font-size: 1.6rem;
   width: 25rem;
+  max-height: 30rem;
+  overflow-y: scroll;
+}
+.movie__details--desc::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.movie__details--desc::-webkit-scrollbar-track {
+  background: #9f54fb;
+  border-radius: 3px;
+}
+.movie__details--desc::-webkit-scrollbar-thumb {
+  background: #242424;
 }
 
 .button--inTheaters {

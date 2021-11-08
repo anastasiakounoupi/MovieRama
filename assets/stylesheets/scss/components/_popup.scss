@@ -56,7 +56,7 @@
         padding: 1rem 2rem;
         font-size: 1.3rem;
 
-        @include scrollbar;
+        @include scrollbar($bg-color2, $primary);
       }
 
       &-item { padding: 1rem; }

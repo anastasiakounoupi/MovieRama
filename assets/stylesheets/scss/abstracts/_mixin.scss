@@ -1,12 +1,12 @@
-@mixin scrollbar {
+@mixin scrollbar($bg, $color) {
   &::-webkit-scrollbar { width: .5rem; }
       
   &::-webkit-scrollbar-track {
-    background: $bg-color2;
+    background: $bg;
     border-radius: 3px;
   }
   
-  &::-webkit-scrollbar-thumb { background: $primary; }
+  &::-webkit-scrollbar-thumb { background: $color; }
 }
 
 // Media Query Manager

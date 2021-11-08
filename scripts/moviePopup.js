@@ -27,7 +27,7 @@ export const showMovieDetails = async () => {
 }
 
 export const showMoviePopup = (data) => {
-  const { id, title} = data[0];
+  const { id } = data[0];
   popup.setAttribute("id", `movie-popup=${id}`)
 
   const video = data[1].results[0]?.key
@@ -54,6 +54,7 @@ export const showMoviePopup = (data) => {
         </div>
       `
     })
+
     popupReviewContent.appendChild(container)
   }
   
@@ -72,6 +73,7 @@ export const showMoviePopup = (data) => {
         </div>
       `
     })
+
     popupSimilarContent.appendChild(container)
   }
   
