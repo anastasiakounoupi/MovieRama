@@ -44,7 +44,7 @@ export const showMoviePopup = (data) => {
     const container =document.createElement('div')
     container.classList.add('popup__content-reviews-container')
 
-    popupReviewContent.innerHTML = '<h1 class="title-primary">REVIEWS</h1>'
+    popupReviewContent.innerHTML = '<h1 class="heading-primary">REVIEWS</h1>'
     reviews.map(review => {
       const { author, content } = review 
       container.innerHTML += `
@@ -62,7 +62,7 @@ export const showMoviePopup = (data) => {
     const container =document.createElement('div')
     container.classList.add('popup__content-similar-container', 'swiper-wrapper')
 
-    popupSimilarContent.innerHTML = '<h1 class="title-primary">SIMILAR MOVIES</h1>'
+    popupSimilarContent.innerHTML = '<h1 class="heading-primary">SIMILAR MOVIES</h1>'
     similarMovies.map(movie => {
       const { title, poster_path } = movie
       container.innerHTML += `

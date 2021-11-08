@@ -8,3 +8,19 @@
   
   &::-webkit-scrollbar-thumb { background: $primary; }
 }
+
+// Media Query Manager
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+      @media only screen and (max-width: 576px) { @content };    //600px
+  }
+  @if $breakpoint == tablet {
+      @media only screen and (max-width: 768px) { @content };     //900px
+  }
+  @if $breakpoint == tablet-land {
+      @media only screen and (max-width: 1200px) { @content };    //1200px
+  }
+  @if $breakpoint == big-desktop {
+      @media only screen and (min-width: 1901) { @content };    //1800
+  }
+}

@@ -5,6 +5,16 @@
 
     &-actions {
       padding-bottom: 5rem;
+
+      &--now-playing {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include respond(tablet) {
+          flex-direction: column;
+        }
+      }
     }
   }
 }
