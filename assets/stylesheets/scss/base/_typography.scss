@@ -18,8 +18,25 @@ a {
   cursor: pointer;
 }
 
-.title-primary {
-  background: -webkit-linear-gradient(45deg, $primary, $bg-color4);
+.heading-primary {
+  color: $primary;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  display: block;
+  font-size: 2rem;
+  letter-spacing: 1rem;
+  display: inline-block;
+  background-image: linear-gradient(to right, $primary, $bg-color4);
   -webkit-background-clip: text;
   color: transparent;
+
+  animation: moveInLeft 1s ease-out;
+  
+  @include respond(phone) {
+    letter-spacing: 1rem;
+    font-family: 5rem;
+    text-align: center;
+  }
+
 }

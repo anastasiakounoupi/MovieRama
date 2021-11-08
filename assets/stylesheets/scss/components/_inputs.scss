@@ -4,6 +4,10 @@
     padding: 1.5rem 0 0;
     margin: 5rem auto;
     width: 50%;
+
+    @include respond(phone) { width: 100%; }
+
+    @include respond(tablet) { width: 70%; }
   }
 
   &__field {

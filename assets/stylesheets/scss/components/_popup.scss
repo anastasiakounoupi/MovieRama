@@ -33,6 +33,20 @@
     transform: translate(-50%, -50%) scale(.25);
     transition: all .4s;
 
+    @include respond(phone) {
+      max-height: 95vh;
+      max-width: 33rem;
+    }
+
+    &-video {
+      @include respond(phone) {
+        iframe {
+          width: 35rem;
+          height: 15rem;
+        }
+      }
+    }
+
     &-bottom { padding: 1rem 2rem; }
 
     &-reviews {

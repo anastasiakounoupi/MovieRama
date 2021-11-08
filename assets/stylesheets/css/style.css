@@ -32,6 +32,19 @@
     transform: translateY(-1rem);
   }
 }
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
 *,
 *::after,
 *::before {
@@ -66,10 +79,25 @@ a {
   cursor: pointer;
 }
 
-.title-primary {
-  background: -webkit-linear-gradient(45deg, #bb86fc, #333333);
+.heading-primary {
+  color: #bb86fc;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  display: block;
+  font-size: 2rem;
+  letter-spacing: 1rem;
+  display: inline-block;
+  background-image: linear-gradient(to right, #bb86fc, #333333);
   -webkit-background-clip: text;
   color: transparent;
+  animation: moveInLeft 1s ease-out;
+}
+@media only screen and (max-width: 576px) {
+  .heading-primary {
+    letter-spacing: 1rem;
+    font-family: 5rem;
+    text-align: center;
+  }
 }
 
 .visually-hidden {
@@ -211,6 +239,12 @@ a {
   cursor: pointer;
   animation: moveUpDown 1s infinite linear;
 }
+@media only screen and (max-width: 768px) {
+  .button--scroll-top {
+    width: 4rem;
+    height: 4rem;
+  }
+}
 .button--scroll-top .fa-chevron-up:before {
   color: #f7f7f7;
 }
@@ -220,6 +254,16 @@ a {
   padding: 1.5rem 0 0;
   margin: 5rem auto;
   width: 50%;
+}
+@media only screen and (max-width: 576px) {
+  .form__group {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .form__group {
+    width: 70%;
+  }
 }
 .form__field {
   width: 100%;
@@ -300,6 +344,18 @@ a {
   transform: translate(-50%, -50%) scale(0.25);
   transition: all 0.4s;
 }
+@media only screen and (max-width: 576px) {
+  .popup__content {
+    max-height: 95vh;
+    max-width: 33rem;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .popup__content-video iframe {
+    width: 35rem;
+    height: 15rem;
+  }
+}
 .popup__content-bottom {
   padding: 1rem 2rem;
 }
@@ -366,6 +422,16 @@ header .navbar__container--right a {
 }
 .main__container-actions {
   padding-bottom: 5rem;
+}
+.main__container-actions--now-playing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 768px) {
+  .main__container-actions--now-playing {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

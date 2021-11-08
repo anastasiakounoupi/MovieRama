@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/anastasiakounoupi/MovieRama#readme",
   "dependencies": {
-    "sass": "^1.43.4",
-    "swiper": "^7.2.0"
+    "sass": "^1.43.4"
   }
 }

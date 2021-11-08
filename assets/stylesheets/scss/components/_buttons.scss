@@ -49,6 +49,11 @@
     cursor: pointer;
     animation: moveUpDown 1s infinite linear;
 
+    @include respond (tablet) {
+      width: 4rem;
+      height: 4rem;
+    }
+
     .fa-chevron-up {
       &:before {
         color: $white-text;
