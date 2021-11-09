@@ -48,6 +48,7 @@ const onInput = (event) => {
     intersectionCounter = 0;
     document.querySelector('.movielist').innerHTML = '';
     searchObserver.unobserve(footer);
+    theaterObserver.observe(footer);
     return;
   } else {
     query = event.target.value;
