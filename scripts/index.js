@@ -1,13 +1,14 @@
 import { getMovies, key, baseUrl } from './fetchMovies.js';
-import { debounce } from './debounce.js'
-import { scrollTop } from './scrollTop.js'
+import { debounce } from './debounce.js';
+import { scrollTop } from './scrollTop.js';
 
-const footer = document.querySelector('footer')
+const footer = document.querySelector('footer');
 const input = document.querySelector('input');
-const inTheatersButton = document.querySelector('.button--inTheaters')
-let query = ''
+const inTheatersButton = document.querySelector('.button--inTheaters');
+const scrollTopBtn = document.querySelector('.button--scroll-top');
+let query = '';
 
-scrollTop()
+scrollTopBtn.addEventListener('click', scrollTop);
 
 let intersectionCounter = 0;
 
@@ -17,54 +18,50 @@ const options = {
   threshold: .5
 };
 
-export const theaterObserver = new IntersectionObserver((entries) => {
-
+//  Initialize Observers
+const theaterObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      intersectionCounter++
+      intersectionCounter++;
       const apiUrl = `${baseUrl}movie/now_playing${key}&page=${intersectionCounter}`;
 
-      getMovies(apiUrl)
+      getMovies(apiUrl);
     }
-
   });
 }, options);
 
 theaterObserver.observe(footer);
 
 const searchObserver = new IntersectionObserver((entries) => {
-
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      intersectionCounter++
+      intersectionCounter++;
       const apiUrl = `${baseUrl}search/movie${key}&query=${query}&page=${intersectionCounter}`;
 
       getMovies(apiUrl)
     }
-
   });
 }, options);
 
 const onInput = (event) => {
   if (event.target.value === '') {
     intersectionCounter = 0;
-    document.querySelector('.movielist').innerHTML = ''
-    searchObserver.unobserve(footer)
-    return
+    document.querySelector('.movielist').innerHTML = '';
+    searchObserver.unobserve(footer);
+    return;
   } else {
-    query = event.target.value
+    query = event.target.value;
     intersectionCounter = 0;
-    theaterObserver.unobserve(footer)
-    document.querySelector('.movielist').innerHTML = ''
-
+    theaterObserver.unobserve(footer);
+    document.querySelector('.movielist').innerHTML = '';
     searchObserver.observe(footer);
   }
 }
 
-input.addEventListener('input', debounce(onInput, 500) )
+input.addEventListener('input', debounce(onInput, 500));
 
 inTheatersButton.addEventListener('click', () => {
-  document.querySelector('.movielist').innerHTML = ''
+  document.querySelector('.movielist').innerHTML = '';
   input.value = ''
   intersectionCounter = 0;
   theaterObserver.observe(footer);

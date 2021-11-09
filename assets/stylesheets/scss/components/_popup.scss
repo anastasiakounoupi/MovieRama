@@ -65,7 +65,10 @@
     &-similar {
       padding-top: 1.5rem;
 
-      &-container { display: flex; }
+      &-container {
+        display: flex;
+        margin-top: 1.5rem;
+      }
       
       &-item {
         width: 25%;

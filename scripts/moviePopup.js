@@ -1,4 +1,4 @@
-import { key, baseUrl } from './fetchMovies.js';
+import { key, baseUrl, imageUrl } from './fetchMovies.js';
 import { similarMoviesSlider } from './sliders.js';
 
 const popup = document.querySelector('.popup');
@@ -6,7 +6,6 @@ const popupContent = document.querySelector('.popup__content');
 const popupVideoContent = document.querySelector('.popup__content-video');
 const popupReviewContent = document.querySelector('.popup__content-reviews');
 const popupSimilarContent = document.querySelector('.popup__content-similar');
-const imageUrl = 'https://image.tmdb.org/t/p/w500';
 
 export const showMovieDetails = async () => {
   const url = window.location.href;
@@ -29,7 +28,7 @@ export const showMovieDetails = async () => {
 export const showMoviePopup = (data) => {
   const { id } = data[0];
   const video = data[1].results[0]?.key;
-  const reviews = data[2].results.slice(0, 2);
+  const reviews = data[2].results?.slice(0, 2);
   const similarMovies = data[3].results;
 
   popup.setAttribute("id", `movie-popup=${id}`);
@@ -87,5 +86,6 @@ export const showMoviePopup = (data) => {
     Object.assign(popup.style,{ visibility:'hidden', opacity:'0' });
     Object.assign(popupContent.style,{ transform: 'translate(-50%, -50%) scale(.25)', visibility:'hidden', opacity:'0' });
     [popupVideoContent, popupReviewContent, popupSimilarContent].map( item => item.innerHTML = '' );
+    window.location.href = '#movie-list'
   })
 }
