@@ -19,7 +19,7 @@ MovieRama is a Frontend Application developed with the aim of simulating the fol
 * Open it with your prefered IDE
 * Use a local web-server or a live server extension of the IDE to run the project
 
-##Screenshots
+## Screenshots
 
 ![Screenshot1](https://user-images.githubusercontent.com/73849202/141001400-152be512-4642-40b7-a34f-d122136a5147.PNG)
 ![Screenshot2](https://user-images.githubusercontent.com/73849202/141001414-dc53217c-78eb-46f3-b66c-d95baa1680be.PNG)
