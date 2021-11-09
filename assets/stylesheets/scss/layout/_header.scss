@@ -13,15 +13,16 @@ header {
       width: 100%;
       z-index: 2;
 
-      &--center {
-        font-size: 3rem;
-      }
+      &--center { font-size: 3rem; }
 
       &--right {
         a {
           padding: 0 1rem;
-        }
 
+          @include respond(phone) {
+            padding: 0;
+          }
+        }
       }
     }
   }

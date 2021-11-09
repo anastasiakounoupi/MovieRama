@@ -21,7 +21,6 @@ a {
 .heading-primary {
   color: $primary;
   text-transform: uppercase;
-
   backface-visibility: hidden;
   display: block;
   font-size: 2rem;
@@ -30,12 +29,10 @@ a {
   background-image: linear-gradient(to right, $primary, $bg-color4);
   -webkit-background-clip: text;
   color: transparent;
-
   animation: moveInLeft 1s ease-out;
   
   @include respond(phone) {
-    letter-spacing: 1rem;
-    font-family: 5rem;
+    font-size: 1.8rem;
     text-align: center;
   }
 

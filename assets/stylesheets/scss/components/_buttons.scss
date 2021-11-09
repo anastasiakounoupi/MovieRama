@@ -10,6 +10,7 @@
     transition: all .4s ease;
     border-radius: .3rem;
     cursor: pointer;
+    margin-top: 1.5rem;
 
     &:hover {
       background-color: darken($primary, 10%);

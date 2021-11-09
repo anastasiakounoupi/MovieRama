@@ -3,45 +3,45 @@ import { debounce } from "./debounce.js";
 
 export const key = '?api_key=bc50218d91157b1ba4f142ef7baaa6a0';
 export const baseUrl = 'https://api.themoviedb.org/3/';
+export const imageUrl = 'https://image.tmdb.org/t/p/w500';
 const genreUrl = `${baseUrl}genre/movie/list${key}`;
 
 const getGenres = async () => {
-  try{
-    const response = await fetch(genreUrl)
-    const { genres } = await response.json()
+  try {
+    const response = await fetch(genreUrl);
+    const { genres } = await response.json();
     return genres;
   } catch (err) {
-    throw new Error(err)
+    throw new Error(err);
   }
 }
 
-const genreList = await getGenres()
+const genreList = await getGenres();
 
 export const getMovies = async (url) => {
   try {
-    const response = await fetch(url)
-    const movies = await response.json()
-    showMovies(movies.results)
+    const response = await fetch(url);
+    const movies = await response.json();
+    showMovies(movies.results);
   } catch (err) {
-    throw new Error(err)
+    throw new Error(err);
   }
 }
 
 const showMovies = (data) => {
-  const movieList = document.querySelector('.movielist')
-  const imageUrl = 'https://image.tmdb.org/t/p/w500'
+  const movieList = document.querySelector('.movielist');
 
   data.forEach(movie => {
     const { id, title, poster_path, release_date, vote_average, overview, genre_ids } = movie;
     let genres = [];
 
     genreList.forEach(genre => {
-      genre_ids.includes(genre.id) ? genres.push(genre.name) : ""
+      genre_ids.includes(genre.id) ? genres.push(genre.name) : "";
     })
 
     const movieEl = document.createElement('article');
     movieEl.classList.add('movie');
-    movieEl.addEventListener('click', debounce(showMovieDetails, 500))
+    movieEl.addEventListener('click', debounce(showMovieDetails, 500));
     movieEl.innerHTML = `
       <a href="#movie-popup=${id}">
       <div class="movie__side movie__side--front">
@@ -61,6 +61,6 @@ const showMovies = (data) => {
       </a>
     `;
 
-    movieList.appendChild(movieEl)
+    movieList.appendChild(movieEl);
   })
 }
